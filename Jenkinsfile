@@ -4,8 +4,13 @@ agent any
     stage("git checkot"){
       steps{
       git branch: 'main', credentialsId: '5', url: 'https://github.com/montfortthomas/new-colloge-project-.git'
-     
       }
     }
+    stage("maven build") {
+      steps {
+         sh "mvn clean package"
+      }
+    
+    } 
   }
 }
